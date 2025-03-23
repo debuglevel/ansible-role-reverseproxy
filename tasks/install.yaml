@@ -1,18 +1,18 @@
 ---
-- name: Install Nginx
-  apt:
+- name: Ensure nginx installation
+  ansible.builtin.apt:
     name: nginx
     state: present
   when: reverse_proxy == "nginx"
 
-- name: Install Traefik
-  apt:
+- name: Ensure Traefik installation
+  ansible.builtin.apt:
     name: traefik
     state: present
   when: reverse_proxy == "traefik"
 
-- name: Install Caddy
-  apt:
+- name: Ensure Caddy installation
+  ansible.builtin.apt:
     name: caddy
     state: present
   when: reverse_proxy == "caddy"

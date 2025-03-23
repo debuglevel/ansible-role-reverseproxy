@@ -1,6 +1,6 @@
 ---
-- name: Configure Traefik
+- name: Ensure traefik configuration
   template:
-    src: traefik.yml.j2
+    src: traefik/traefik.yml.j2
     dest: /etc/traefik/traefik.yml
-  notify: restart traefik
+  notify: Restart traefik

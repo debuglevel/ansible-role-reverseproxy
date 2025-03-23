@@ -1,3 +1,15 @@
 ---
-- include_tasks: install.yml
-- include_tasks: "configure_{{ reverse_proxy }}.yml"
+- name: Ensure reverse proxy installation
+  ansible.builtin.include_tasks: install.yaml
+
+# - name: Ensure reverse proxy configuration
+#   ansible.builtin.include_tasks: "configure_{{ reverse_proxy }}.yaml"
+
+- name: Ensure reverse proxy configuration
+  ansible.builtin.include_tasks: "configure_caddy.yaml"
+
+- name: Ensure reverse proxy configuration
+  ansible.builtin.include_tasks: "configure_nginx.yaml"
+
+- name: Ensure reverse proxy configuration
+  ansible.builtin.include_tasks: "configure_traefik.yaml"

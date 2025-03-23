@@ -1,15 +1,15 @@
 ---
-- name: restart nginx
+- name: Restart nginx
   service:
     name: nginx
     state: restarted
 
-- name: restart traefik
+- name: Restart traefik
   service:
     name: traefik
     state: restarted
 
-- name: restart caddy
+- name: Restart caddy
   service:
     name: caddy
     state: restarted
