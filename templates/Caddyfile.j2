@@ -1,0 +1,9 @@
+{
+    auto_https off
+}
+
+{% for vhost in virtual_hosts %}
+{{ vhost.server_name }} {
+    reverse_proxy {{ vhost.backend }}
+}
+{% endfor %}

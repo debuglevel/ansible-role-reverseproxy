@@ -1,4 +1,4 @@
-# Role Name
+# ansible-role-reverseproxy
 
 <!-- A brief description of the role goes here. -->
 
@@ -23,11 +23,11 @@
          - { role: username.rolename, x: 42 } -->
 
 ```yaml
-- name: Ensure SOMETHING
+- name: Ensure reverse proxy
   hosts: root_server
   become: true
   roles:
-    - debuglevel.template
+    - debuglevel.reverse_proxy
   # tags:
   #   - base
   #   - base:users
@@ -40,12 +40,7 @@ Add this in your `requirements.yaml`:
 ```
 roles:
   - name: debuglevel.template
-    src: https://github.com/debuglevel/ansible-role-template
-    version: <commit hash>
-
-  - name: debuglevel.template
-    src: git@gitlab.mycorp.internal:ansible/roles/ansible-role-template.git
-    scm: git
+    src: https://github.reverse_proxy/debuglevel/ansible-role-reverse_proxy
     version: <commit hash>
 ```
 

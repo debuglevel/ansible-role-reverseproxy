@@ -1,0 +1,15 @@
+http:
+  routers:
+    {% for vhost in virtual_hosts %}
+    {{ vhost.server_name }}:
+      rule: "Host(`{{ vhost.server_name }}`)"
+      service: "{{ vhost.service }}"
+    {% endfor %}
+
+  services:
+    {% for service in backend_services %}
+    {{ service.name }}:
+      loadBalancer:
+        servers:
+          - url: "http://{{ service.backend }}"
+    {% endfor %}

@@ -1,0 +1,14 @@
+global:
+  checkNewVersion: true
+  sendAnonymousUsage: false
+
+entryPoints:
+  http:
+    address: ":80"
+
+providers:
+  file:
+    filename: "/etc/traefik/dynamic.yml"
+
+api:
+  dashboard: true

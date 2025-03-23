@@ -1,0 +1,19 @@
+---
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+  when: reverse_proxy == "nginx"
+
+- name: Install Traefik
+  apt:
+    name: traefik
+    state: present
+  when: reverse_proxy == "traefik"
+
+- name: Install Caddy
+  apt:
+    name: caddy
+    state: present
+  when: reverse_proxy == "caddy"
+  
