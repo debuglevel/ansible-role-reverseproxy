@@ -3,9 +3,9 @@
 def test_directories(host):
     """Validate service directories exists."""
     directories = [
-        "/etc/nginx/",
-        "/etc/caddy/",
-        "/etc/traefik",
+        "/etc/nginx",
+        "/etc/caddy",
+        # "/etc/traefik",
     ]
 
     for directory in directories:
@@ -20,8 +20,8 @@ def test_files(host):
     files_names = [
         "/etc/nginx/nginx.conf",
         "/etc/caddy/Caddyfile",
-        "/etc/traefik/traefik.yml",
-        "/etc/traefik/dynamic.yml",
+        # "/etc/traefik/traefik.yml",
+        # "/etc/traefik/dynamic.yml",
     ]
 
     for file_name in files_names:
@@ -42,7 +42,7 @@ def test_commands(host):
     commands = [
         "nginx",
         "caddy",
-        "traefik",
+        # "traefik",
     ]
 
     for command in commands:

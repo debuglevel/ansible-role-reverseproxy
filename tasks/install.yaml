@@ -1,19 +1,50 @@
 ---
 - name: Ensure nginx installation
   ansible.builtin.apt:
+    update_cache: true
+    cache_valid_time: 3600  # Do not update if already done in the last hour.
     name: nginx
     state: present
-  when: reverse_proxy == "nginx"
+  # when: reverse_proxy == "nginx"
 
-- name: Ensure Traefik installation
-  ansible.builtin.apt:
-    name: traefik
-    state: present
-  when: reverse_proxy == "traefik"
+# - name: Ensure Traefik installation
+#   ansible.builtin.apt:
+#     update_cache: true
+#     cache_valid_time: 3600  # Do not update if already done in the last hour.
+#     name: traefik
+#     state: present
+#   # when: reverse_proxy == "traefik"
 
 - name: Ensure Caddy installation
-  ansible.builtin.apt:
-    name: caddy
-    state: present
-  when: reverse_proxy == "caddy"
-  
+  block:
+    - name: Ensure dependencies
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600  # Do not update if already done in the last hour.
+        pkg:
+          - python3-debian
+          #- debian-keyring
+          #- debian-archive-keyring
+          #- apt-transport-https
+          #- gnupg2
+          #- curl
+        state: present
+
+    - name: Add caddy repository
+      ansible.builtin.deb822_repository:
+        name: caddy
+        uris: https://dl.cloudsmith.io/public/caddy/stable/deb/debian
+        signed_by: https://dl.cloudsmith.io/public/caddy/stable/gpg.key
+        components: main
+        suites: any-version
+        types: deb
+        state: present
+        enabled: true
+
+    - name: Ensure Caddy package
+      ansible.builtin.apt:
+        name: caddy
+        state: present
+        update_cache: true
+        # cache_valid_time: 3600  # Do not update if already done in the last hour.
+      # when: reverse_proxy == "caddy"

@@ -3,11 +3,7 @@
 {
 	"name": "Default Linux Universal",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/universal:2-focal",
-	"features": {
-		"ghcr.io/devcontainers-extra/features/ansible:2": {},
-		"ghcr.io/hspaans/devcontainer-features/ansible-lint:1": {}
-	}
+	"image": "mcr.microsoft.com/devcontainers/universal:2-focal"
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
