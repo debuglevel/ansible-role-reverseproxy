@@ -1,4 +1,11 @@
 ---
+# Needed for htpasswd role
+- name: Ensure python passlib
+  become: true
+  ansible.builtin.apt:
+    pkg:
+      - python3-passlib
+
 - name: Ensure nginx installation
   ansible.builtin.apt:
     update_cache: true
