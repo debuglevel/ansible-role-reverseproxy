@@ -1,6 +1,6 @@
 http:
   routers:
-    {% for vhost in reverse_proxy__virtual_hosts %}
+    {% for vhost in reverse_proxy__service %}
     {{ vhost.server_name }}:
       rule: "Host(`{{ vhost.server_name }}`)"
       service: "{{ vhost.service }}"

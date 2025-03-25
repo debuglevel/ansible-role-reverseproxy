@@ -1,9 +1,28 @@
 ---
 reverse_proxy__software: "caddy"  # Options: nginx, traefik, caddy
-reverse_proxy__virtual_hosts: []
+reverse_proxy__service: []
 reverse_proxy__backend_services: []
 
-# reverse_proxy__virtual_hosts:
+# Creates a full nginx.conf
+reverse_proxy__nginx_standalone: False
+
+# Creates snippets which must be included by another nginx.conf
+reverse_proxy__nginx_snippets: True
+
+
+
+# reverse_proxy__service:
+#   - name: unicorn-metrics
+#     path: /unicorn/metrics
+#     basic_access_authentication:
+#       enabled: True
+#       username: unicorn
+#       password: secret
+#     backend:
+#       url: http://127.0.0.1:9886/metrics
+    
+
+# reverse_proxy__service:
 #   - server_name: "example.com"
 #     backend: "backend1"
 #
