@@ -8,7 +8,7 @@ http {
     server {
         listen 80;
 
-        {% for vhost in virtual_hosts %}
+        {% for vhost in reverse_proxy__virtual_hosts %}
         server_name {{ vhost.server_name }};
 
         location / {

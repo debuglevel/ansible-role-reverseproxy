@@ -1,14 +1,12 @@
 ---
-reverse_proxy: "caddy"  # Options: nginx, traefik, caddy
-virtual_hosts: []
-backend_services: []
+reverse_proxy__software: "caddy"  # Options: nginx, traefik, caddy
+reverse_proxy__virtual_hosts: []
+reverse_proxy__backend_services: []
 
-# reverse_proxy: "traefik"
-#
-# virtual_hosts:
+# reverse_proxy__virtual_hosts:
 #   - server_name: "example.com"
 #     backend: "backend1"
 #
-# backend_services:
+# reverse_proxy__backend_services:
 #   - name: "backend1"
 #     backend: "192.168.1.100:8080"

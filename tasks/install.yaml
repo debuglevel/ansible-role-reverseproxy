@@ -5,7 +5,7 @@
     cache_valid_time: 3600  # Do not update if already done in the last hour.
     name: nginx
     state: present
-  # when: reverse_proxy == "nginx"
+  # when: reverse_proxy__software == "nginx"
 
 # - name: Ensure Traefik installation
 #   ansible.builtin.apt:
@@ -13,7 +13,7 @@
 #     cache_valid_time: 3600  # Do not update if already done in the last hour.
 #     name: traefik
 #     state: present
-#   # when: reverse_proxy == "traefik"
+#   # when: reverse_proxy__software == "traefik"
 
 - name: Ensure Caddy installation
   block:
@@ -47,4 +47,4 @@
         state: present
         update_cache: true
         # cache_valid_time: 3600  # Do not update if already done in the last hour.
-      # when: reverse_proxy == "caddy"
+      # when: reverse_proxy__software == "caddy"

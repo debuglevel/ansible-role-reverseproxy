@@ -2,7 +2,7 @@
     auto_https off
 }
 
-{% for vhost in virtual_hosts %}
+{% for vhost in reverse_proxy__virtual_hosts %}
 {{ vhost.server_name }} {
     reverse_proxy {{ vhost.backend }}
 }
