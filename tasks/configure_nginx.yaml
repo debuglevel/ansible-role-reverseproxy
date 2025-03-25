@@ -9,7 +9,7 @@
 - name: Ensure nginx configuration
   ansible.builtin.template:
     src: nginx/snippets.conf.j2
-    dest: /etc/nginx/snippets/reverse-proxy.conf
+    dest: "{{ reverse_proxy__nginx_snippets_directory }}/reverse-proxy.conf"
   when: reverse_proxy__nginx_snippets
   notify: Restart nginx
 
