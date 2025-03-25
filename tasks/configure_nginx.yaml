@@ -1,12 +1,12 @@
 ---
-- name: Ensure nginx configuration
+- name: Ensure nginx configuration (standalone)
   ansible.builtin.template:
     src: nginx/standalone.conf.j2
     dest: /etc/nginx/nginx.conf
   when: reverse_proxy__nginx_standalone
   notify: Restart nginx
 
-- name: Ensure nginx configuration
+- name: Ensure nginx configuration (snippets)
   ansible.builtin.template:
     src: nginx/snippets.conf.j2
     dest: "{{ reverse_proxy__nginx_snippets_directory }}/reverse-proxy.nginx"
