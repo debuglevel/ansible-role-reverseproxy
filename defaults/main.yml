@@ -26,6 +26,17 @@ reverse_proxy__acme_endpoint: https://acme.zerossl.com/v2/DV90
 # reverse_proxy__acme_email: invalid@invalid.invalid
 
 
+# Caddy automatic SSL.
+# https://caddyserver.com/docs/caddyfile/options#auto-https
+reverse_proxy__caddy_autohttps: "on"  # Default. 
+# reverse_proxy__caddy_autohttps: "off"  # Disables both certificate automation and HTTP-to-HTTPS redirects.
+# reverse_proxy__caddy_autohttps: "disable_redirects"  # Disable only HTTP-to-HTTPS redirects.
+# reverse_proxy__caddy_autohttps: "disable_certs"  # Disable only certificate automation.
+# reverse_proxy__caddy_autohttps: "ignore_loaded_certs"  # Automate certificates even for names which appear on manually-loaded certificates. Useful if you specified a certificate using the tls directive which contains names (or wildcards) that you instead want to be managed automatically.
+
+
+
+
 # reverse_proxy__service:
 #   - name: unicorn-metrics
 #     path: /unicorn/metrics

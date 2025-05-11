@@ -1,6 +1,6 @@
 {
-    auto_https off
-    
+    auto_https {{ reverse_proxy__caddy_autohttps }}
+
     acme_ca {{ reverse_proxy__acme_endpoint }}
 
     {% if reverse_proxy__acme_email is defined %}
