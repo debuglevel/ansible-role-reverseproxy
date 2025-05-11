@@ -1,5 +1,11 @@
 {
     auto_https off
+    
+    acme_ca {{ reverse_proxy__acme_endpoint }}
+
+    {% if reverse_proxy__acme_email is defined %}
+        email {{ reverse_proxy__acme_email }}
+    {% endif %}
 }
 
 {% for vhost in reverse_proxy__service %}

@@ -11,6 +11,20 @@ reverse_proxy__nginx_snippets: True
 reverse_proxy__nginx_snippets_directory: /etc/nginx/snippets/
 
 
+# ACME endpoints to get automatically SSL certificates from.
+
+# The default is ZeroSSL, because their limits are higher than Let's Encrypt:
+# https://help.zerossl.com/hc/en-us/articles/17864245480093-Advantages-over-Using-Let-s-Encrypt
+reverse_proxy__acme_endpoint: https://acme.zerossl.com/v2/DV90
+# reverse_proxy__acme_endpoint: https://acme-v02.api.letsencrypt.org/directory
+
+# If you want to use Let's Encrypt, consider using the staging endpoint for testing:
+# reverse_proxy__acme_endpoint: https://acme-staging-v02.api.letsencrypt.org/directory
+
+# Mail address which might be used in context of ACME.
+# If not defined, the corresponding setting will not be set.
+# reverse_proxy__acme_email: invalid@invalid.invalid
+
 
 # reverse_proxy__service:
 #   - name: unicorn-metrics
