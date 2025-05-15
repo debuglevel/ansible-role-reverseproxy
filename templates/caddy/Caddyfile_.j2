@@ -1,3 +1,6 @@
+# TODO: For now, the playbook just supplies a template itself.
+#       We might create a general one again once the requirements are clearer.
+
 {
     {% if reverse_proxy__caddy_autohttps is defined %}
         auto_https {{ reverse_proxy__caddy_autohttps }}
