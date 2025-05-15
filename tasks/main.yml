@@ -4,12 +4,3 @@
 
 - name: Ensure reverse proxy configuration
   ansible.builtin.include_tasks: "configure_{{ reverse_proxy__software }}.yaml"
-
-# - name: Ensure reverse proxy configuration
-#   ansible.builtin.include_tasks: "configure_caddy.yaml"
-
-# - name: Ensure reverse proxy configuration
-#   ansible.builtin.include_tasks: "configure_nginx.yaml"
-
-# - name: Ensure reverse proxy configuration
-#   ansible.builtin.include_tasks: "configure_traefik.yaml"

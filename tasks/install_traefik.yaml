@@ -1,0 +1,8 @@
+---
+# - name: Ensure Traefik installation
+#   ansible.builtin.apt:
+#     update_cache: true
+#     cache_valid_time: 3600  # Do not update if already done in the last hour.
+#     name: traefik
+#     state: present
+#   # when: reverse_proxy__software == "traefik"
