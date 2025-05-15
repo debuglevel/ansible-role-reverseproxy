@@ -1,5 +1,7 @@
 {
-    auto_https {{ reverse_proxy__caddy_autohttps }}
+    {% if reverse_proxy__caddy_autohttps is defined %}
+        auto_https {{ reverse_proxy__caddy_autohttps }}
+    {% endif %}
 
     acme_ca {{ reverse_proxy__acme_endpoint }}
 
