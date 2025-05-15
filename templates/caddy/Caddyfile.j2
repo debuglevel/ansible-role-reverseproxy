@@ -6,10 +6,24 @@
     {% if reverse_proxy__acme_email is defined %}
         email {{ reverse_proxy__acme_email }}
     {% endif %}
+
+    {% if reverse_proxy__caddy_debug %}
+        debug
+    {% endif %}
 }
 
-{% for vhost in reverse_proxy__service %}
-{{ vhost.server_name }} {
-    reverse_proxy {{ vhost.backend }}
+{% for vhost in reverse_proxy__services %}
+{{ vhost.address }} {
+    {% for path in vhost.paths %}
+        handle_path {{ path.path }}* {
+            reverse_proxy {{ path.backend.url }}
+
+            {% if path.basic_access_authentication.enabled %}
+                basic_auth {
+                    {{ path.basic_access_authentication.username }} {{ path.basic_access_authentication.password | password_hash(hashtype="bcrypt") }}
+                }
+            {% endif %}
+        }
+    {% endfor %}
 }
 {% endfor %}

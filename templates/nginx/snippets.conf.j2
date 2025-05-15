@@ -1,3 +1,5 @@
+# TODO: Does not work with new `reverse_proxy__services`, only old `reverse_proxy__service`.
+
 {% for service in reverse_proxy__service %}
 # {{ service.name }}
 location {{ service.path }} {

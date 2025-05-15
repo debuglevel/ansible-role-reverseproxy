@@ -10,6 +10,9 @@ reverse_proxy__nginx_standalone: False
 reverse_proxy__nginx_snippets: True
 reverse_proxy__nginx_snippets_directory: /etc/nginx/snippets/
 
+# Produces verbose logs.
+reverse_proxy__caddy_debug: True
+
 
 # ACME endpoints to get automatically SSL certificates from.
 
@@ -37,15 +40,18 @@ reverse_proxy__caddy_autohttps: "on"  # Default.
 
 
 
-# reverse_proxy__service:
-#   - name: unicorn-metrics
-#     path: /unicorn/metrics
-#     basic_access_authentication:
-#       enabled: True
-#       username: unicorn
-#       password: secret
-#     backend:
-#       url: http://127.0.0.1:9886/metrics
+# reverse_proxy__services:
+#   - name: earth.sol.lan_vhost
+#     address: earth.sol.lan
+#     paths:
+#       - name: unicorn
+#         path: /unicorn
+#         basic_access_authentication:
+#           enabled: True
+#           username: unicorn
+#           password: secret
+#         backend:
+#           url: http://127.0.0.1:9886/unicorn
     
 
 # reverse_proxy__service:
